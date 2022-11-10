@@ -14,20 +14,20 @@ import React, { useState } from 'react'
 
 export default function Post({post, increaseAppLikes}) {
 
-	const [postLikes, setPostLikes] = useState(0);
+	const [postLikes, setPostLikes] = useState(post.likes);
 
 	function handleClick() {
 		setPostLikes(postLikes + 1);
 		increaseAppLikes();
-		console.log('Suma un like:', post.titulo);
+		console.log('Suma 1 like:', post.titulo);
 	}
 
   return (
     <div className='posteo'>
 			<h3>{post.titulo}</h3>
 			<p>{post.texto}</p>
-			<button onClick={handleClick} >👍</button>
-			<h5>{postLikes}</h5>
+			<button onClick={handleClick} >🧡</button>
+			<h5>{postLikes > 10 ? "Más de 10 likes" : postLikes}</h5>
     </div>
   )
 }
